@@ -41,7 +41,7 @@ module.exports = new (class Data {
 	// Read data from a file
 	read = (file) => {
 		return new Promise((resolve, reject) => {
-			fs.readFile(".data/" + file + ".json", "utf8", (err, data) => {
+			fs.readFile("./data/" + file + ".json", "utf8", (err, data) => {
 				if (!err && data) {
 					var parsedData = JSON.parse(data);
 					resolve(parsedData);
