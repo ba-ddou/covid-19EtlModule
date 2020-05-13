@@ -1,38 +1,36 @@
-const { groupByCountry, uniqueCountries } = require("./lib/groupByCountry");
+const { groupByCountry, getUniqueCountries } = require("./lib/groupByCountry");
+const { aggregateStats, getDatesList } = require("./lib/aggregateStats");
+const { normalize } = require("./lib/normalize");
 const _ = require("lodash");
 const data = require("./data");
 
-// groupByCountry(`${__dirname}\\db\\time_series_covid19_confirmed_global.csv`);
-
-// groupByCountry(`${__dirname}\\db\\time_series_covid19_deaths_global.csv`);
-
-// groupByCountry(`${__dirname}\\db\\time_series_covid19_recovered_global.csv`);
-
 async function run() {
-	let confirmedCountries = await uniqueCountries(
+	let confirmedData = await groupByCountry(
 		`${__dirname}\\db\\time_series_covid19_confirmed_global.csv`
 	);
-	console.log("confirmedCountries", confirmedCountries.length);
-	// await data.create("confirmedCountries", confirmedCountries);
-
-	let deathsCountries = await uniqueCountries(
-		`${__dirname}\\db\\time_series_covid19_deaths_global.csv`
-	);
-	console.log("deathsCountries", deathsCountries.length);
-	// await data.create("deathsCountries", deathsCountries);
-
-	let recoveredCountries = await uniqueCountries(
+	let recoveredData = await groupByCountry(
 		`${__dirname}\\db\\time_series_covid19_recovered_global.csv`
 	);
-	console.log("recoveredCountries", recoveredCountries.length);
-	// await data.create("recoveredCountries", recoveredCountries);
+	let deadData = await groupByCountry(
+		`${__dirname}\\db\\time_series_covid19_deaths_global.csv`
+	);
 
-	console.log("confirmedCountries, recoveredCountries");
-	console.log(_.xor(confirmedCountries, recoveredCountries));
-	console.log("deathsCountries, recoveredCountries");
-	console.log(_.xor(deathsCountries, recoveredCountries));
-	console.log("deathsCountries, confirmedCountries");
-	console.log(_.xor(deathsCountries, confirmedCountries));
+	let countries = getUniqueCountries(confirmedData);
+	let { aggregatedStats } = aggregateStats({
+		countries: countries,
+		confirmedData,
+		recoveredData,
+		deadData,
+	});
+	let datesList = getDatesList(confirmedData);
+	let { dates, territories, stats } = normalize({
+		countries,
+		aggregatedStats,
+		datesList,
+	});
+	data.create("dates", dates);
+	data.create("territories", territories);
+	data.create("stats", stats);
 }
 
 run();
