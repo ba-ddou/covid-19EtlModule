@@ -1,0 +1,14 @@
+{
+	"name": "covid19EtlModule",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Badou Abdelbassite",
+	"license": "MIT",
+	"scripts": {
+		"start": "node index"
+	},
+	"dependencies": {
+		"lodash": "^4.17.15",
+		"neat-csv": "^5.2.0"
+	}
+}
