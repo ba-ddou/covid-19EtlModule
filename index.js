@@ -1,6 +1,7 @@
 const { groupByCountry, getUniqueCountries } = require("./lib/groupByCountry");
 const { aggregateStats, getDatesList } = require("./lib/aggregateStats");
 const { normalize } = require("./lib/normalize");
+const { syncCountryNames } = require("./lib/syncCountryNames");
 const _ = require("lodash");
 const data = require("./data");
 
@@ -28,6 +29,7 @@ async function run() {
 		aggregatedStats,
 		datesList,
 	});
+	territories = syncCountryNames({ territories });
 	data.create("dates", dates);
 	data.create("territories", territories);
 	data.create("stats", stats);
