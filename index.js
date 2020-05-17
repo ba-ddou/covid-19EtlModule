@@ -17,6 +17,7 @@ async function run() {
 	);
 
 	let countries = getUniqueCountries(confirmedData);
+	console.log("run -> countries", countries);
 	let { aggregatedStats } = aggregateStats({
 		countries: countries,
 		confirmedData,
