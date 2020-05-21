@@ -45,11 +45,11 @@ async function run() {
 	// as the ones used in the MAP component
 	territories = syncCountryNames({ territories });
 	// save dates data ( table ) as a json file
-	data.create("dates", dates);
+	data.create("exports/dates", dates);
 	// save coutries data ( table ) as a json file
-	data.create("territories", territories);
+	data.create("exports/territories", territories);
 	// save facts data ( table ) as a josn file
-	data.create("stats", stats);
+	data.create("exports/stats", stats);
 }
 
 run();
