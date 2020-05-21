@@ -1,0 +1,38 @@
+[
+	{
+		"og": "bosnia and herzegovina",
+		"new": "bosnia and herz."
+	},
+	{
+		"og": "cote d'ivoire",
+		"new": "côte d'ivoire"
+	},
+	{
+		"og": "dominican republic",
+		"new": "dominican rep."
+	},
+	{
+		"og": "korea, south",
+		"new": "south korea"
+	},
+	{
+		"og": "north macedonia",
+		"new": "macedonia"
+	},
+	{
+		"og": "south sudan",
+		"new": "s. sudan"
+	},
+	{
+		"og": "taiwan*",
+		"new": "taiwan"
+	},
+	{
+		"og": "us",
+		"new": "united states of america"
+	},
+	{
+		"og": "western sahara",
+		"new": "w. sahara"
+	}
+]

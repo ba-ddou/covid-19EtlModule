@@ -13,4 +13,4 @@ yarn-error.log*
 build
 tests.js
 
-/data/*.json
+# /data/*.json
