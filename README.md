@@ -2,8 +2,18 @@
 
 ## run the module
 
+make sure you have node installed on your system
+
 ```
+> yarn install
 > yarn start
+```
+
+or
+
+```
+> npm install
+> npm start
 ```
 
 ## Exports
