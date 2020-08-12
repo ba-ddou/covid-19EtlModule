@@ -15,4 +15,4 @@ tests.js
 
 # /data/*.json
 # /db
-/db/COVID-19Data
+/db/COVID-19/*

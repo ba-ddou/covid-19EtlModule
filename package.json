@@ -5,9 +5,8 @@
 	"author": "Badou Abdelbassite",
 	"license": "MIT",
 	"scripts": {
-		"start": "cd ./db/COVID-19Data && git pull origin master && cd ../.. && node index",
-		"load:data" : "cd ./db && git clone https://github.com/CSSEGISandData/COVID-19.git"
-	
+		"start": "cd ./db/COVID-19 && git pull origin master && cd ../.. && node index",
+		"load:data": "cd ./db && git clone https://github.com/CSSEGISandData/COVID-19.git"
 	},
 	"dependencies": {
 		"lodash": "^4.17.15",

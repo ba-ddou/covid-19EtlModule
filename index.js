@@ -8,15 +8,15 @@ const data = require("./data");
 async function run() {
 	// get Ccountry grouped confirmed cases data
 	let confirmedData = await groupByCountry(
-		`${__dirname}\\db\\COVID-19Data\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_confirmed_global.csv`
+		`${__dirname}/db/COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv`
 	);
 	// get Ccountry grouped recovered cases data
 	let recoveredData = await groupByCountry(
-		`${__dirname}\\db\\COVID-19Data\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_recovered_global.csv`
+		`${__dirname}/db/COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv`
 	);
 	// get Ccountry grouped deaths data
 	let deadData = await groupByCountry(
-		`${__dirname}\\db\\COVID-19Data\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_deaths_global.csv`
+		`${__dirname}/db/COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv`
 	);
 	// available countries list
 	let countries = getUniqueCountries(confirmedData);
