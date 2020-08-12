@@ -56,7 +56,7 @@ module.exports = new (class Data {
 	update = (file, data) => {
 		return new Promise((resolve, reject) => {
 			// Open the file for writing
-			fs.open(".data/" + file + ".json", "r+", (err, fileDescriptor) => {
+			fs.open("./data/" + file + ".json", "r+", (err, fileDescriptor) => {
 				if (!err && fileDescriptor) {
 					var stringData = JSON.stringify(data);
 					// Truncate the file
@@ -93,7 +93,7 @@ module.exports = new (class Data {
 	delete = (dir, file) => {
 		return new Promise((resolve, reject) => {
 			// Unlink the file
-			fs.unlink(".data/" + file + ".json", (err) => {
+			fs.unlink("./data/" + file + ".json", (err) => {
 				if (!err) resolve(true);
 				else reject("Error deleting the file");
 			});

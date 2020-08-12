@@ -8,15 +8,15 @@ const data = require("./data");
 async function run() {
 	// get Ccountry grouped confirmed cases data
 	let confirmedData = await groupByCountry(
-		`${__dirname}\\db\\time_series_covid19_confirmed_global.csv`
+		`${__dirname}\\db\\COVID-19Data\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_confirmed_global.csv`
 	);
 	// get Ccountry grouped recovered cases data
 	let recoveredData = await groupByCountry(
-		`${__dirname}\\db\\time_series_covid19_recovered_global.csv`
+		`${__dirname}\\db\\COVID-19Data\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_recovered_global.csv`
 	);
 	// get Ccountry grouped deaths data
 	let deadData = await groupByCountry(
-		`${__dirname}\\db\\time_series_covid19_deaths_global.csv`
+		`${__dirname}\\db\\COVID-19Data\\csse_covid_19_data\\csse_covid_19_time_series\\time_series_covid19_deaths_global.csv`
 	);
 	// available countries list
 	let countries = getUniqueCountries(confirmedData);
@@ -45,11 +45,11 @@ async function run() {
 	// as the ones used in the MAP component
 	territories = syncCountryNames({ territories });
 	// save dates data ( table ) as a json file
-	data.create("exports/dates", dates);
+	data.update("exports/dates", dates);
 	// save coutries data ( table ) as a json file
-	data.create("exports/territories", territories);
+	data.update("exports/territories", territories);
 	// save facts data ( table ) as a josn file
-	data.create("exports/stats", stats);
+	data.update("exports/stats", stats);
 }
 
 run();
